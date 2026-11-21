@@ -205,24 +205,25 @@ a {
 .fundo_anil_claro { background-color: var(--cor-anil-claro); }
 
 /* =====================================================================
-   7. ESTRUTURA: MENU À ESQUERDA, CONTEÚDO À DIREITA
+   7. ESTRUTURA: MENU NO TOPO, CONTEÚDO NO MEIO, RODAPÉ EMBAIXO
    ===================================================================== */
 .sistema {
     display: flex;
+    flex-direction: column;
     min-height: 100vh;
 }
 
 .conteudo {
-    flex: 1 1 0;
-    min-width: 0;
-    padding: 36px 44px 56px;
+    flex: 1;
+    width: 100%;
+    padding: 28px 44px 40px;
 }
 
 .conteudo_interno {
     display: flex;
     flex-direction: column;
-    gap: 24px;
-    max-width: 1180px;
+    gap: 20px;
+    max-width: 1280px;
     margin: 0 auto;
 }
 
@@ -236,57 +237,40 @@ a {
 }
 
 /* =====================================================================
-   8. MENU LATERAL
+   8. MENU NO TOPO E RODAPÉ
    ===================================================================== */
-.menu_lateral {
-    display: flex;
-    flex-direction: column;
-    gap: 36px;
-    flex: 0 0 264px;
-    align-self: flex-start;
-    height: 100vh;
+.menu_topo {
     position: sticky;
     top: 0;
-    padding: 28px 20px;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    padding: 14px 44px;
     background-color: var(--cor-azul-noite);
 }
 
-.menu_logo {
-    padding: 0 8px;
-}
-
-.menu_titulo {
-    padding: 0 16px 6px;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--cor-ceu);
-}
-
 .menu_lista {
-    margin-top: 10px;
     display: flex;
-    flex-direction: column;
     gap: 6px;
 }
 
 .menu_item {
     display: flex;
     align-items: center;
-    gap: 12px;
-    height: 48px;
-    padding: 0 16px;
+    gap: 10px;
+    height: 44px;
+    padding: 0 18px;
     border-radius: 14px;
     font-size: 15px;
     font-weight: 600;
+    white-space: nowrap;
     color: var(--cor-gelo);
 }
 
 .menu_icone {
-    width: 20px;
-    font-size: 18px;
-    text-align: center;
+    font-size: 17px;
 }
 
 .menu_item:hover {
@@ -300,12 +284,19 @@ a {
     color: var(--cor-azul-noite);
 }
 
-.menu_rodape {
-    margin-top: auto;
-    padding: 0 16px;
-    font-size: 12px;
+.rodape {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 6px 20px;
+    padding: 18px 44px;
+    background-color: var(--cor-azul-noite);
+    font-size: 13px;
     color: var(--cor-ceu);
-    opacity: 0.8;
+}
+
+.rodape b {
+    color: var(--cor-branco);
 }
 
 /* =====================================================================
@@ -372,7 +363,7 @@ a {
 }
 
 .card_largo {
-    flex: 2 1 560px;
+    flex: 1 1 560px;
     min-width: 0;
 }
 
@@ -382,6 +373,10 @@ a {
 }
 
 /* Aviso que aparece depois de conferir */
+.aviso:empty {
+    display: none;
+}
+
 .aviso {
     min-height: 24px;
     font-weight: 700;
@@ -555,21 +550,28 @@ a {
 .q_errada { background-color: var(--cor-lavanda); border: 1.5px solid var(--cor-anil); }
 .q_selecionada { background-color: var(--cor-ceu); border: 1.5px solid var(--cor-capri); }
 
-.pistas h2 {
-    margin-bottom: 8px;
+.pistas {
+    flex: 1 1 520px;
+    min-width: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    padding: 20px;
 }
 
-.pistas ul + h2 {
-    margin-top: 20px;
+.pistas h2 {
+    margin-bottom: 6px;
+    padding-left: 8px;
+    font-size: 19px;
 }
 
 .pistas li {
     display: flex;
-    gap: 8px;
-    padding: 6px 10px;
+    gap: 6px;
+    padding: 4px 8px;
     border-radius: 10px;
-    font-size: 14px;
-    line-height: 1.4;
+    font-size: 13px;
+    line-height: 1.35;
     cursor: pointer;
 }
 
@@ -578,7 +580,7 @@ a {
 }
 
 .pistas li b {
-    flex: 0 0 22px;
+    flex: 0 0 20px;
     font-family: var(--fonte-titulo);
 }
 
@@ -997,42 +999,36 @@ a {
         flex-direction: column;
     }
 
-    /* o menu vira uma barra no topo */
-    .menu_lateral {
-        flex: none;
-        flex-direction: row;
-        align-items: center;
+    /* menu: logo só com o símbolo e os itens rolam para o lado */
+    .menu_topo {
         gap: 12px;
-        width: 100%;
-        height: auto;
-        padding: 12px 14px;
-        z-index: 10;
+        padding: 10px 14px;
     }
 
-    .menu_titulo,
-    .menu_rodape {
-        display: none;
+    .menu_logo {
+        font-size: 0;
     }
 
-    .menu_lateral nav {
+    .menu_topo nav {
         flex: 1;
+        min-width: 0;
         overflow-x: auto;
-    }
-
-    .menu_lista {
-        flex-direction: row;
-        margin-top: 0;
     }
 
     .menu_item {
         height: 40px;
         padding: 0 12px;
-        white-space: nowrap;
         font-size: 14px;
     }
 
-    .menu_logo {
-        font-size: 0;
+    .rodape {
+        padding: 16px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .pistas {
+        grid-template-columns: 1fr;
     }
 
     .conteudo {

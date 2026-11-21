@@ -13,7 +13,7 @@
     <div class="sistema">
 
         <!-- =============================== MENU LATERAL =============================== -->
-        <aside class="menu_lateral">
+        <header class="menu_topo">
             <a class="logo logo_negativo menu_logo" onclick="mostrarTela('inicio')">
                 <svg class="logo_simbolo" viewBox="0 -14 200 179" aria-hidden="true">
                     <g fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -30,7 +30,6 @@
             </a>
 
             <nav>
-                <p class="menu_titulo">Jogos</p>
                 <ul class="menu_lista">
                     <li><a class="menu_item menu_ativo" id="menu_inicio" onclick="mostrarTela('inicio')"><span class="menu_icone">⌂</span>Início</a></li>
                     <li><a class="menu_item" id="menu_cruzadinha" onclick="mostrarTela('cruzadinha')"><span class="menu_icone">▦</span>Cruzadinha</a></li>
@@ -38,9 +37,7 @@
                     <li><a class="menu_item" id="menu_mapa" onclick="mostrarTela('mapa')"><span class="menu_icone">◎</span>Mapa do computador</a></li>
                 </ul>
             </nav>
-
-            <p class="menu_rodape">Arquitetura Computacional<br>Sprint 3 · SPTech</p>
-        </aside>
+        </header>
 
         <main class="conteudo">
 
@@ -125,11 +122,15 @@
                             </div>
                         </div>
 
-                        <div class="card card_medio pistas">
-                            <h2>Horizontais</h2>
-                            <ul id="ul_horizontais"></ul>
-                            <h2>Verticais</h2>
-                            <ul id="ul_verticais"></ul>
+                        <div class="card pistas">
+                            <div class="pistas_coluna">
+                                <h2>Horizontais</h2>
+                                <ul id="ul_horizontais"></ul>
+                            </div>
+                            <div class="pistas_coluna">
+                                <h2>Verticais</h2>
+                                <ul id="ul_verticais"></ul>
+                            </div>
                         </div>
                     </div>
 
@@ -365,6 +366,12 @@
             </section>
 
         </main>
+
+        <!-- =============================== RODAPÉ =============================== -->
+        <footer class="rodape">
+            <span>Feito por <b>Daniel Henrique Matos Ferreira</b></span>
+            <span>Arquitetura Computacional · Sprint 3 · SPTech</span>
+        </footer>
     </div>
 
     <!-- Janela de parabéns (fica vazia até alguém completar um jogo) -->
