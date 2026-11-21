@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elos da Máquina | Arquitetura Computacional</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="sistema">
+
+        <!-- =============================== MENU LATERAL =============================== -->
+        <aside class="menu_lateral">
+            <a class="logo logo_negativo menu_logo" onclick="mostrarTela('inicio')">
+                <svg class="logo_simbolo" viewBox="0 -14 200 179" aria-hidden="true">
+                    <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M48,102.6 L195,7.5" stroke="#00BFFF" stroke-width="8" />
+                        <path d="M15,150 L185,40" stroke="#FFFFFF" stroke-width="9" />
+                        <path d="M100,10 L93,134 C92,140 88,139 86,136 C64,131 38,144 15,150" stroke="#FFFFFF" stroke-width="9" />
+                        <path d="M143,29 L140,83" stroke="#FFFFFF" stroke-width="7" />
+                        <path d="M159,19 L156,73" stroke="#FFFFFF" stroke-width="7" />
+                    </g>
+                    <circle cx="144.5" cy="12" r="6.5" fill="#00BFFF" />
+                    <circle cx="160.5" cy="2" r="6.5" fill="#00BFFF" />
+                </svg>
+                ELOS
+            </a>
+
+            <nav>
+                <p class="menu_titulo">Jogos</p>
+                <ul class="menu_lista">
+                    <li><a class="menu_item menu_ativo" id="menu_inicio" onclick="mostrarTela('inicio')"><span class="menu_icone">⌂</span>Início</a></li>
+                    <li><a class="menu_item" id="menu_cruzadinha" onclick="mostrarTela('cruzadinha')"><span class="menu_icone">▦</span>Cruzadinha</a></li>
+                    <li><a class="menu_item" id="menu_elos" onclick="mostrarTela('elos')"><span class="menu_icone">∞</span>Elos</a></li>
+                    <li><a class="menu_item" id="menu_mapa" onclick="mostrarTela('mapa')"><span class="menu_icone">◎</span>Mapa do computador</a></li>
+                </ul>
+            </nav>
+
+            <p class="menu_rodape">Arquitetura Computacional<br>Sprint 3 · SPTech</p>
+        </aside>
+
+        <main class="conteudo">
+
+            <!-- =============================== INÍCIO =============================== -->
+            <section class="tela tela_ativa" id="tela_inicio">
+                <div class="conteudo_interno">
+
+                    <div class="inicio_destaque card">
+                        <div class="inicio_texto">
+                            <p class="sobretitulo">Arquitetura Computacional</p>
+                            <h1>Elos da Máquina</h1>
+                            <p class="inicio_sub">Um computador é feito de partes que se ligam umas às outras. Descubra esses elos jogando com os 16 termos da aula.</p>
+                            <button class="botao_primario" onclick="mostrarTela('cruzadinha')">Começar pela cruzadinha</button>
+                        </div>
+
+                        <svg class="inicio_logo" viewBox="0 -14 200 179" aria-hidden="true">
+                            <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M48,102.6 L195,7.5" stroke="#00BFFF" stroke-width="8" />
+                                <path d="M15,150 L185,40" stroke="#0B2E4F" stroke-width="9" />
+                                <path d="M100,10 L93,134 C92,140 88,139 86,136 C64,131 38,144 15,150" stroke="#0B2E4F" stroke-width="9" />
+                                <path d="M143,29 L140,83" stroke="#0B2E4F" stroke-width="7" />
+                                <path d="M159,19 L156,73" stroke="#0B2E4F" stroke-width="7" />
+                            </g>
+                            <circle cx="144.5" cy="12" r="6.5" fill="#00BFFF" />
+                            <circle cx="160.5" cy="2" r="6.5" fill="#00BFFF" />
+                        </svg>
+                    </div>
+
+                    <div class="linha">
+                        <div class="card modo">
+                            <div class="modo_icone fundo_capri_claro">▦</div>
+                            <h2>Cruzadinha</h2>
+                            <p>Leia as pistas e escreva cada termo direto nas casas. São 16 palavras que se cruzam.</p>
+                            <button class="botao_secundario" onclick="mostrarTela('cruzadinha')">Jogar</button>
+                        </div>
+
+                        <div class="card modo">
+                            <div class="modo_icone fundo_anil">∞</div>
+                            <h2>Elos</h2>
+                            <p>As 16 palavras estão misturadas. Encontre os 4 grupos de 4 que têm algo em comum.</p>
+                            <button class="botao_secundario" onclick="mostrarTela('elos')">Jogar</button>
+                        </div>
+
+                        <div class="card modo">
+                            <div class="modo_icone fundo_lavanda">◎</div>
+                            <h2>Mapa do computador</h2>
+                            <p>Olhe o desenho por dentro da máquina e dê nome a cada parte numerada.</p>
+                            <button class="botao_secundario" onclick="mostrarTela('mapa')">Jogar</button>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- =============================== CRUZADINHA =============================== -->
+            <section class="tela" id="tela_cruzadinha">
+                <div class="conteudo_interno">
+
+                    <div class="cabecalho_pagina">
+                        <div>
+                            <h1>Cruzadinha</h1>
+                            <p>Clique numa casa ou numa pista e digite. Clique de novo na casa para trocar a direção.</p>
+                        </div>
+                        <div class="cabecalho_botoes">
+                            <div class="contador"><span id="span_cruz_acertos">0 de 16</span> palavras</div>
+                            <button class="botao_primario" onclick="conferirCruzadinha()">Conferir</button>
+                            <button class="botao_secundario" onclick="reiniciarCruzadinha()">Reiniciar</button>
+                        </div>
+                    </div>
+
+                    <p class="aviso" id="p_cruz_aviso"></p>
+
+                    <div class="linha linha_cruzadinha">
+                        <div class="card card_largo">
+                            <div class="tabuleiro_area">
+                                <div class="tabuleiro" id="div_tabuleiro"></div>
+                            </div>
+                            <div class="legenda">
+                                <span><i class="quadradinho q_certa"></i> palavra certa</span>
+                                <span><i class="quadradinho q_errada"></i> palavra errada</span>
+                                <span><i class="quadradinho q_selecionada"></i> palavra selecionada</span>
+                            </div>
+                        </div>
+
+                        <div class="card card_medio pistas">
+                            <h2>Horizontais</h2>
+                            <ul id="ul_horizontais"></ul>
+                            <h2>Verticais</h2>
+                            <ul id="ul_verticais"></ul>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- =============================== ELOS =============================== -->
+            <section class="tela" id="tela_elos">
+                <div class="conteudo_interno">
+
+                    <div class="cabecalho_pagina">
+                        <div>
+                            <h1>Elos</h1>
+                            <p>Selecione 4 palavras que tenham algo em comum e confirme. Você pode errar 4 vezes.</p>
+                        </div>
+                        <div class="cabecalho_botoes">
+                            <div class="contador">Erros restantes <span class="vidas" id="span_vidas"></span></div>
+                            <button class="botao_secundario" onclick="reiniciarElos()">Reiniciar</button>
+                        </div>
+                    </div>
+
+                    <div class="card elos_card">
+                        <div id="div_grupos_achados"></div>
+                        <div class="elos_grade" id="div_elos_grade"></div>
+                        <p class="aviso" id="p_elos_aviso"></p>
+                        <div class="elos_botoes">
+                            <button class="botao_suave" onclick="embaralharElos()">Embaralhar</button>
+                            <button class="botao_secundario" onclick="limparSelecao()">Limpar seleção</button>
+                            <button class="botao_primario" id="btn_confirmar_elos" onclick="confirmarGrupo()">Confirmar</button>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- =============================== MAPA DO COMPUTADOR =============================== -->
+            <section class="tela" id="tela_mapa">
+                <div class="conteudo_interno">
+
+                    <div class="cabecalho_pagina">
+                        <div>
+                            <h1>Mapa do computador</h1>
+                            <p>Escolha um número do desenho e escreva o nome da parte. Clique num número para ver uma dica.</p>
+                        </div>
+                        <div class="cabecalho_botoes">
+                            <div class="contador"><span id="span_mapa_acertos">0 de 16</span> encontradas</div>
+                            <button class="botao_secundario" onclick="reiniciarMapa()">Reiniciar</button>
+                        </div>
+                    </div>
+
+                    <div class="card mapa_form">
+                        <div class="campo campo_numero">
+                            <label for="sel_numero">Número</label>
+                            <select id="sel_numero" onchange="mostrarDica()"></select>
+                        </div>
+                        <div class="campo campo_nome">
+                            <label for="ipt_nome">Nome da parte</label>
+                            <input type="text" id="ipt_nome" placeholder="Ex.: memória cache" autocomplete="off" onkeydown="if (event.key == 'Enter') confirmarParte()">
+                        </div>
+                        <button class="botao_primario" onclick="confirmarParte()">Confirmar</button>
+                        <p class="mapa_dica" id="p_dica"></p>
+                        <p class="mensagem_erro" id="span_mapa_erro"></p>
+                    </div>
+
+                    <div class="linha">
+                        <div class="card mapa_card">
+                            <svg class="mapa_svg" id="svg_mapa" viewBox="0 0 1000 620" role="img" aria-label="Desenho de um computador por dentro com 16 partes numeradas">
+                                <defs>
+                                    <marker id="seta" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                                        <path d="M0 0L10 5L0 10Z" fill="#3E5872" />
+                                    </marker>
+                                </defs>
+
+                                <!-- Placa-mãe -->
+                                <rect x="20" y="20" width="650" height="580" rx="26" class="placa" />
+                                <text x="44" y="52" class="titulo_area">Placa-mãe</text>
+
+                                <!-- Ligação CPU - ROM e RAM - DMA - SSD -->
+                                <path d="M180 360V420" class="fio" />
+                                <path d="M555 250V330" class="fio" />
+                                <path d="M555 400V460" class="fio" />
+
+                                <!-- 1. CPU -->
+                                <g class="parte" id="parte1">
+                                    <rect x="60" y="70" width="300" height="290" rx="20" class="peca chip" />
+                                    <path d="M80 70H340M80 360H340" class="pinos" />
+                                    <path d="M60 90V340M360 90V340" class="pinos" />
+                                    <g class="marcador" onclick="escolherNumero(1)"><circle cx="210" cy="94" r="15" /><text x="210" y="99">1</text></g>
+                                    <text x="210" y="99" class="rotulo">CPU</text>
+                                </g>
+
+                                <!-- 2. ULA -->
+                                <g class="parte" id="parte2">
+                                    <rect x="82" y="118" width="122" height="96" rx="12" class="peca bloco" />
+                                    <text x="143" y="194" class="detalhe">+ − AND OR</text>
+                                    <g class="marcador" onclick="escolherNumero(2)"><circle cx="143" cy="158" r="15" /><text x="143" y="163">2</text></g>
+                                    <text x="143" y="163" class="rotulo">ULA</text>
+                                </g>
+
+                                <!-- 3. UC -->
+                                <g class="parte" id="parte3">
+                                    <rect x="216" y="118" width="122" height="96" rx="12" class="peca bloco" />
+                                    <text x="277" y="194" class="detalhe">ordens</text>
+                                    <g class="marcador" onclick="escolherNumero(3)"><circle cx="277" cy="158" r="15" /><text x="277" y="163">3</text></g>
+                                    <text x="277" y="163" class="rotulo">UC</text>
+                                </g>
+
+                                <!-- 4. Registradores -->
+                                <g class="parte" id="parte4">
+                                    <rect x="82" y="226" width="256" height="56" rx="12" class="peca bloco" />
+                                    <path d="M100 262h24M132 262h24M164 262h24M260 262h24M292 262h24" class="celulas" />
+                                    <g class="marcador" onclick="escolherNumero(4)"><circle cx="210" cy="250" r="15" /><text x="210" y="255">4</text></g>
+                                    <text x="210" y="255" class="rotulo">Registradores</text>
+                                </g>
+
+                                <!-- 5. Cache -->
+                                <g class="parte" id="parte5">
+                                    <rect x="82" y="292" width="256" height="52" rx="12" class="peca bloco" />
+                                    <g class="marcador" onclick="escolherNumero(5)"><circle cx="210" cy="318" r="15" /><text x="210" y="323">5</text></g>
+                                    <text x="210" y="323" class="rotulo">Cache</text>
+                                </g>
+
+                                <!-- 6. RAM -->
+                                <g class="parte" id="parte6">
+                                    <rect x="475" y="80" width="160" height="170" rx="14" class="peca modulo" />
+                                    <rect x="495" y="100" width="32" height="44" rx="4" class="chipinho" />
+                                    <rect x="539" y="100" width="32" height="44" rx="4" class="chipinho" />
+                                    <rect x="583" y="100" width="32" height="44" rx="4" class="chipinho" />
+                                    <path d="M490 236h130" class="contatos" />
+                                    <g class="marcador" onclick="escolherNumero(6)"><circle cx="555" cy="186" r="15" /><text x="555" y="191">6</text></g>
+                                    <text x="555" y="191" class="rotulo">RAM</text>
+                                </g>
+
+                                <!-- 7. Address bus (só sai da CPU) -->
+                                <g class="parte" id="parte7">
+                                    <path d="M362 124H468M362 134H468M362 144H468" class="peca peca_linha" marker-end="url(#seta)" />
+                                    <g class="marcador" onclick="escolherNumero(7)"><circle cx="417" cy="104" r="15" /><text x="417" y="109">7</text></g>
+                                    <text x="417" y="109" class="rotulo rotulo_pequeno">Address bus</text>
+                                </g>
+
+                                <!-- 8. Data bus (ida e volta) -->
+                                <g class="parte" id="parte8">
+                                    <path d="M366 196H468M366 206H468M366 216H468" class="peca peca_linha" marker-start="url(#seta)" marker-end="url(#seta)" />
+                                    <g class="marcador" onclick="escolherNumero(8)"><circle cx="417" cy="240" r="15" /><text x="417" y="245">8</text></g>
+                                    <text x="417" y="245" class="rotulo rotulo_pequeno">Data bus</text>
+                                </g>
+
+                                <!-- 9. ROM -->
+                                <g class="parte" id="parte9">
+                                    <rect x="100" y="420" width="160" height="96" rx="14" class="peca chip" />
+                                    <path d="M115 420V410M140 420V410M165 420V410M190 420V410M215 420V410M240 420V410" class="fio" />
+                                    <text x="180" y="500" class="detalhe">BIOS</text>
+                                    <g class="marcador" onclick="escolherNumero(9)"><circle cx="180" cy="464" r="15" /><text x="180" y="469">9</text></g>
+                                    <text x="180" y="469" class="rotulo">ROM</text>
+                                </g>
+
+                                <!-- 10. DMA -->
+                                <g class="parte" id="parte10">
+                                    <rect x="475" y="330" width="160" height="70" rx="14" class="peca chip" />
+                                    <g class="marcador" onclick="escolherNumero(10)"><circle cx="555" cy="365" r="15" /><text x="555" y="370">10</text></g>
+                                    <text x="555" y="370" class="rotulo">DMA</text>
+                                </g>
+
+                                <!-- 11. Memória de massa (SSD) -->
+                                <g class="parte" id="parte11">
+                                    <rect x="450" y="460" width="210" height="110" rx="16" class="peca modulo" />
+                                    <rect x="470" y="478" width="56" height="34" rx="5" class="chipinho" />
+                                    <rect x="536" y="478" width="56" height="34" rx="5" class="chipinho" />
+                                    <text x="555" y="556" class="detalhe">SSD</text>
+                                    <g class="marcador" onclick="escolherNumero(11)"><circle cx="618" cy="495" r="15" /><text x="618" y="500">11</text></g>
+                                    <text x="555" y="535" class="rotulo">Memória de massa</text>
+                                </g>
+
+                                <!-- Placa Arduino -->
+                                <rect x="690" y="20" width="290" height="330" rx="26" class="placa placa_arduino" />
+                                <text x="714" y="52" class="titulo_area titulo_claro">Arduino Uno</text>
+
+                                <!-- 12. Microcontrolador -->
+                                <g class="parte" id="parte12">
+                                    <rect x="715" y="72" width="240" height="250" rx="18" class="peca chip" />
+                                    <path d="M735 72H935M735 322H935" class="pinos" />
+                                    <g class="marcador" onclick="escolherNumero(12)"><circle cx="835" cy="98" r="15" /><text x="835" y="103">12</text></g>
+                                    <text x="835" y="103" class="rotulo">Microcontrolador</text>
+                                </g>
+
+                                <!-- 13. Flash -->
+                                <g class="parte" id="parte13">
+                                    <rect x="737" y="128" width="196" height="80" rx="12" class="peca bloco" />
+                                    <text x="835" y="196" class="detalhe">32 KB · código</text>
+                                    <g class="marcador" onclick="escolherNumero(13)"><circle cx="835" cy="160" r="15" /><text x="835" y="165">13</text></g>
+                                    <text x="835" y="165" class="rotulo">Flash</text>
+                                </g>
+
+                                <!-- 14. EEPROM -->
+                                <g class="parte" id="parte14">
+                                    <rect x="737" y="220" width="196" height="80" rx="12" class="peca bloco" />
+                                    <text x="835" y="288" class="detalhe">1 KB · configurações</text>
+                                    <g class="marcador" onclick="escolherNumero(14)"><circle cx="835" cy="252" r="15" /><text x="835" y="257">14</text></g>
+                                    <text x="835" y="257" class="rotulo">EEPROM</text>
+                                </g>
+
+                                <!-- 15. Dual core -->
+                                <g class="parte" id="parte15">
+                                    <rect x="690" y="380" width="135" height="160" rx="18" class="peca chip" />
+                                    <rect x="706" y="420" width="48" height="80" rx="8" class="nucleo" />
+                                    <rect x="761" y="420" width="48" height="80" rx="8" class="nucleo" />
+                                    <g class="marcador" onclick="escolherNumero(15)"><circle cx="757" cy="403" r="15" /><text x="757" y="408">15</text></g>
+                                    <text x="757" y="526" class="rotulo">Dual core</text>
+                                </g>
+
+                                <!-- 16. Quad core -->
+                                <g class="parte" id="parte16">
+                                    <rect x="845" y="380" width="135" height="160" rx="18" class="peca chip" />
+                                    <rect x="861" y="420" width="48" height="36" rx="8" class="nucleo" />
+                                    <rect x="916" y="420" width="48" height="36" rx="8" class="nucleo" />
+                                    <rect x="861" y="464" width="48" height="36" rx="8" class="nucleo" />
+                                    <rect x="916" y="464" width="48" height="36" rx="8" class="nucleo" />
+                                    <g class="marcador" onclick="escolherNumero(16)"><circle cx="912" cy="403" r="15" /><text x="912" y="408">16</text></g>
+                                    <text x="912" y="526" class="rotulo">Quad core</text>
+                                </g>
+
+                                <text x="835" y="590" class="titulo_area titulo_centro">Processadores</text>
+                            </svg>
+                        </div>
+
+                        <div class="card mapa_card">
+                            <h2>Partes encontradas</h2>
+                            <ul class="lista_partes" id="ul_partes"></ul>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Janela de parabéns (fica vazia até alguém completar um jogo) -->
+    <div id="div_janela"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

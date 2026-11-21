@@ -1,0 +1,1087 @@
+/* =====================================================================
+   ELOS DA MÁQUINA · style.css
+   Identidade visual do ELOS: paleta Gruta Azul, Nunito e Nunito Sans
+   ===================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Nunito+Sans:wght@400;600;700&display=swap');
+
+/* =====================================================================
+   1. VARIÁVEIS
+   ===================================================================== */
+:root {
+    --cor-gelo: #E6F8FF;
+    --cor-ceu: #CCF2FF;
+    --cor-capri-claro: #7FDFFF;
+    --cor-capri: #00BFFF;
+    --cor-capri-hover: #66D4FF;
+    --cor-capri-profundo: #0077B6;
+    --cor-azul-noite: #0B2E4F;
+    --cor-azul-noite-claro: #1D4A73;
+
+    --cor-anil: #7B93FF;
+    --cor-lavanda: #C7B8FF;
+    --cor-anil-claro: #E8ECFF;
+
+    --cor-texto-suave: #3E5872;
+    --cor-borda: #7FDFFF;
+    --cor-trilho: #DDF3FD;
+    --cor-branco: #FFFFFF;
+
+    --fonte-titulo: 'Nunito', sans-serif;
+    --fonte-texto: 'Nunito Sans', sans-serif;
+}
+
+/* =====================================================================
+   2. REGRAS GERAIS
+   ===================================================================== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: var(--cor-gelo);
+    color: var(--cor-azul-noite);
+    font-family: var(--fonte-texto);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+    font-family: var(--fonte-titulo);
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 44px;
+    font-weight: 800;
+}
+
+h2 {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+p {
+    margin: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* =====================================================================
+   3. LOGO
+   ===================================================================== */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--fonte-titulo);
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--cor-azul-noite);
+}
+
+.logo_simbolo {
+    width: 42px;
+}
+
+.logo_negativo {
+    color: var(--cor-branco);
+}
+
+/* =====================================================================
+   4. BOTÕES
+   ===================================================================== */
+.botao_primario,
+.botao_secundario,
+.botao_suave {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    height: 48px;
+    padding: 0 24px;
+    border: 1.5px solid transparent;
+    border-radius: 14px;
+    font-family: var(--fonte-texto);
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.botao_primario {
+    background-color: var(--cor-capri);
+    color: var(--cor-azul-noite);
+}
+
+.botao_primario:hover {
+    background-color: var(--cor-capri-hover);
+}
+
+.botao_primario:disabled {
+    background-color: var(--cor-trilho);
+    color: var(--cor-texto-suave);
+    cursor: default;
+}
+
+.botao_secundario {
+    border-color: var(--cor-azul-noite);
+    background-color: transparent;
+    color: var(--cor-azul-noite);
+}
+
+.botao_secundario:hover {
+    background-color: var(--cor-branco);
+}
+
+.botao_suave {
+    background-color: transparent;
+    color: var(--cor-azul-noite);
+}
+
+.botao_suave:hover {
+    background-color: var(--cor-ceu);
+}
+
+/* =====================================================================
+   5. CAMPOS DE FORMULÁRIO
+   ===================================================================== */
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.campo label {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.campo input,
+.campo select {
+    width: 100%;
+    height: 48px;
+    padding: 0 14px;
+    border: 1.5px solid var(--cor-borda);
+    border-radius: 12px;
+    background-color: var(--cor-branco);
+    color: var(--cor-azul-noite);
+    font-family: var(--fonte-texto);
+    font-size: 15px;
+}
+
+.campo input:focus,
+.campo select:focus {
+    outline: none;
+    border-color: var(--cor-capri);
+}
+
+.mensagem_erro {
+    min-height: 22px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--cor-capri-profundo);
+}
+
+/* =====================================================================
+   6. CORES DE FUNDO
+   ===================================================================== */
+.fundo_ceu { background-color: var(--cor-ceu); }
+.fundo_capri_claro { background-color: var(--cor-capri-claro); }
+.fundo_anil { background-color: var(--cor-anil); }
+.fundo_lavanda { background-color: var(--cor-lavanda); }
+.fundo_anil_claro { background-color: var(--cor-anil-claro); }
+
+/* =====================================================================
+   7. ESTRUTURA: MENU À ESQUERDA, CONTEÚDO À DIREITA
+   ===================================================================== */
+.sistema {
+    display: flex;
+    min-height: 100vh;
+}
+
+.conteudo {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 36px 44px 56px;
+}
+
+.conteudo_interno {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+/* Só a tela escolhida no menu aparece */
+.tela {
+    display: none;
+}
+
+.tela_ativa {
+    display: block;
+}
+
+/* =====================================================================
+   8. MENU LATERAL
+   ===================================================================== */
+.menu_lateral {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    flex: 0 0 264px;
+    align-self: flex-start;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    padding: 28px 20px;
+    background-color: var(--cor-azul-noite);
+}
+
+.menu_logo {
+    padding: 0 8px;
+}
+
+.menu_titulo {
+    padding: 0 16px 6px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--cor-ceu);
+}
+
+.menu_lista {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.menu_item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    height: 48px;
+    padding: 0 16px;
+    border-radius: 14px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--cor-gelo);
+}
+
+.menu_icone {
+    width: 20px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.menu_item:hover {
+    background-color: var(--cor-azul-noite-claro);
+    color: var(--cor-branco);
+}
+
+.menu_ativo,
+.menu_ativo:hover {
+    background-color: var(--cor-capri);
+    color: var(--cor-azul-noite);
+}
+
+.menu_rodape {
+    margin-top: auto;
+    padding: 0 16px;
+    font-size: 12px;
+    color: var(--cor-ceu);
+    opacity: 0.8;
+}
+
+/* =====================================================================
+   9. CABEÇALHO DAS PÁGINAS E CARDS
+   ===================================================================== */
+.cabecalho_pagina {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 16px;
+}
+
+.cabecalho_pagina h1 {
+    font-size: 32px;
+}
+
+.cabecalho_pagina p {
+    margin-top: 6px;
+    font-size: 16px;
+    color: var(--cor-texto-suave);
+}
+
+.cabecalho_botoes {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Contador em pílula (ex.: "8 de 16 palavras") */
+.contador {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 48px;
+    padding: 0 20px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 14px;
+    background-color: var(--cor-branco);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--cor-texto-suave);
+}
+
+.contador span {
+    font-family: var(--fonte-titulo);
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--cor-azul-noite);
+}
+
+.card {
+    padding: 24px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 24px;
+    background-color: var(--cor-branco);
+}
+
+.linha {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card_largo {
+    flex: 2 1 560px;
+    min-width: 0;
+}
+
+.card_medio {
+    flex: 1 1 300px;
+    min-width: 0;
+}
+
+/* Aviso que aparece depois de conferir */
+.aviso {
+    min-height: 24px;
+    font-weight: 700;
+    color: var(--cor-capri-profundo);
+}
+
+/* =====================================================================
+   10. TELA INICIAL
+   ===================================================================== */
+.inicio_destaque {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    padding: 44px 48px;
+    background: linear-gradient(120deg, var(--cor-branco) 55%, var(--cor-ceu));
+}
+
+.inicio_texto {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    max-width: 560px;
+}
+
+.sobretitulo {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--cor-capri-profundo);
+}
+
+.inicio_sub {
+    margin-bottom: 8px;
+    font-size: 17px;
+    color: var(--cor-texto-suave);
+}
+
+.inicio_logo {
+    flex: 0 0 220px;
+    width: 220px;
+}
+
+.modo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    flex: 1 1 260px;
+}
+
+.modo p {
+    flex: 1;
+    color: var(--cor-texto-suave);
+}
+
+.modo_icone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    font-size: 24px;
+}
+
+/* =====================================================================
+   11. CRUZADINHA
+   ===================================================================== */
+.linha_cruzadinha {
+    align-items: flex-start;
+}
+
+.tabuleiro_area {
+    overflow-x: auto;
+}
+
+.tabuleiro {
+    display: grid;
+    grid-template-columns: repeat(16, minmax(28px, 1fr));
+    gap: 3px;
+    min-width: 470px;
+}
+
+.casa {
+    position: relative;
+    aspect-ratio: 1 / 1;
+}
+
+.casa_vazia {
+    background-color: transparent;
+}
+
+.casa input {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 1.5px solid var(--cor-borda);
+    border-radius: 7px;
+    background-color: var(--cor-branco);
+    color: var(--cor-azul-noite);
+    font-family: var(--fonte-titulo);
+    font-size: clamp(13px, 1.4vw, 19px);
+    font-weight: 800;
+    text-align: center;
+    text-transform: uppercase;
+    caret-color: transparent;
+    cursor: pointer;
+}
+
+.casa input:focus {
+    outline: none;
+}
+
+.casa_numero {
+    position: absolute;
+    top: 1px;
+    left: 3px;
+    z-index: 1;
+    font-size: 9px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--cor-texto-suave);
+    pointer-events: none;
+}
+
+.casa input.selecionada {
+    border-color: var(--cor-capri);
+    background-color: var(--cor-ceu);
+}
+
+.casa input.atual {
+    border-color: var(--cor-azul-noite);
+    background-color: var(--cor-capri-claro);
+}
+
+.casa input.certa {
+    border-color: var(--cor-capri-profundo);
+    background-color: var(--cor-capri-claro);
+}
+
+.casa input.errada {
+    border-color: var(--cor-anil);
+    background-color: var(--cor-lavanda);
+}
+
+.legenda {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    margin-top: 16px;
+    font-size: 13px;
+    color: var(--cor-texto-suave);
+}
+
+.legenda span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.quadradinho {
+    width: 14px;
+    height: 14px;
+    border-radius: 4px;
+}
+
+.q_certa { background-color: var(--cor-capri-claro); border: 1.5px solid var(--cor-capri-profundo); }
+.q_errada { background-color: var(--cor-lavanda); border: 1.5px solid var(--cor-anil); }
+.q_selecionada { background-color: var(--cor-ceu); border: 1.5px solid var(--cor-capri); }
+
+.pistas h2 {
+    margin-bottom: 8px;
+}
+
+.pistas ul + h2 {
+    margin-top: 20px;
+}
+
+.pistas li {
+    display: flex;
+    gap: 8px;
+    padding: 6px 10px;
+    border-radius: 10px;
+    font-size: 14px;
+    line-height: 1.4;
+    cursor: pointer;
+}
+
+.pistas li:hover {
+    background-color: var(--cor-gelo);
+}
+
+.pistas li b {
+    flex: 0 0 22px;
+    font-family: var(--fonte-titulo);
+}
+
+.pistas li.pista_ativa {
+    background-color: var(--cor-ceu);
+}
+
+.pistas li .marca {
+    margin-left: auto;
+    font-weight: 800;
+}
+
+.pistas li.pista_certa .marca { color: var(--cor-capri-profundo); }
+.pistas li.pista_errada .marca { color: var(--cor-anil); }
+
+/* =====================================================================
+   12. ELOS
+   ===================================================================== */
+.elos_card {
+    max-width: 820px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.vidas {
+    display: flex;
+    gap: 6px;
+}
+
+.vida {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--cor-capri);
+}
+
+.vida_perdida {
+    background-color: var(--cor-trilho);
+}
+
+.elos_grade {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.palavra_elo {
+    height: 76px;
+    padding: 6px;
+    border: 1.5px solid var(--cor-borda);
+    border-radius: 14px;
+    background-color: var(--cor-gelo);
+    color: var(--cor-azul-noite);
+    font-family: var(--fonte-titulo);
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1.15;
+    hyphens: auto;
+    overflow-wrap: anywhere;
+    cursor: pointer;
+    transition: transform 0.15s;
+}
+
+.palavra_elo:hover {
+    transform: translateY(-2px);
+}
+
+.palavra_elo.escolhida {
+    border-color: var(--cor-azul-noite);
+    background-color: var(--cor-azul-noite);
+    color: var(--cor-branco);
+}
+
+.palavra_elo.tremer {
+    animation: tremer 0.4s;
+}
+
+.grupo_achado {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 76px;
+    margin-bottom: 10px;
+    border-radius: 14px;
+    text-align: center;
+    animation: surgir 0.4s;
+}
+
+.grupo_achado h3 {
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.grupo_achado p {
+    font-size: 14px;
+}
+
+.grupo_revelado {
+    opacity: 0.6;
+}
+
+.elos_botoes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+/* =====================================================================
+   13. MAPA DO COMPUTADOR
+   ===================================================================== */
+.mapa_form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 14px 16px;
+}
+
+.campo_numero {
+    flex: 0 0 130px;
+}
+
+.campo_nome {
+    flex: 1 1 260px;
+}
+
+.mapa_dica {
+    flex: 1 1 100%;
+    min-height: 22px;
+    font-size: 14px;
+    color: var(--cor-texto-suave);
+}
+
+.mapa_form .mensagem_erro {
+    flex: 1 1 100%;
+    margin-top: -10px;
+}
+
+.mapa_svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    font-family: var(--fonte-texto);
+}
+
+.placa {
+    fill: var(--cor-gelo);
+    stroke: var(--cor-borda);
+    stroke-width: 1.5;
+}
+
+.placa_arduino {
+    fill: var(--cor-azul-noite-claro);
+    stroke: var(--cor-azul-noite);
+}
+
+.titulo_area {
+    font-family: var(--fonte-titulo);
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    fill: var(--cor-texto-suave);
+}
+
+.titulo_claro {
+    fill: var(--cor-ceu);
+}
+
+.titulo_centro {
+    text-anchor: middle;
+}
+
+.fio {
+    fill: none;
+    stroke: var(--cor-texto-suave);
+    stroke-width: 2;
+    stroke-dasharray: 5 5;
+}
+
+.chip {
+    fill: var(--cor-branco);
+    stroke: var(--cor-azul-noite);
+    stroke-width: 2;
+}
+
+.bloco {
+    fill: var(--cor-trilho);
+    stroke: var(--cor-capri-profundo);
+    stroke-width: 1.5;
+}
+
+.modulo {
+    fill: var(--cor-anil-claro);
+    stroke: var(--cor-azul-noite);
+    stroke-width: 2;
+}
+
+.chipinho {
+    fill: var(--cor-azul-noite-claro);
+}
+
+.nucleo {
+    fill: var(--cor-ceu);
+    stroke: var(--cor-capri-profundo);
+    stroke-width: 1.5;
+}
+
+.pinos {
+    fill: none;
+    stroke: var(--cor-azul-noite);
+    stroke-width: 9;
+    stroke-dasharray: 3 9;
+}
+
+.celulas {
+    fill: none;
+    stroke: var(--cor-capri-profundo);
+    stroke-width: 3;
+    stroke-linecap: round;
+    opacity: 0.4;
+}
+
+.contatos {
+    fill: none;
+    stroke: var(--cor-capri-profundo);
+    stroke-width: 12;
+    stroke-dasharray: 4 4;
+}
+
+.peca_linha {
+    fill: none;
+    stroke: var(--cor-texto-suave);
+    stroke-width: 2.5;
+}
+
+.detalhe {
+    font-size: 12px;
+    text-anchor: middle;
+    fill: var(--cor-texto-suave);
+}
+
+/* Bolinha com o número */
+.marcador {
+    cursor: pointer;
+}
+
+.marcador circle {
+    fill: var(--cor-capri);
+    stroke: var(--cor-azul-noite);
+    stroke-width: 2;
+    transition: r 0.15s;
+}
+
+.marcador:hover circle {
+    r: 18;
+}
+
+.marcador text {
+    font-family: var(--fonte-titulo);
+    font-size: 14px;
+    font-weight: 800;
+    text-anchor: middle;
+    fill: var(--cor-azul-noite);
+    pointer-events: none;
+}
+
+.marcador_escolhido circle {
+    fill: var(--cor-azul-noite);
+}
+
+.marcador_escolhido text {
+    fill: var(--cor-branco);
+}
+
+/* Nome da parte: só aparece quando ela é encontrada */
+.rotulo {
+    display: none;
+    font-family: var(--fonte-titulo);
+    font-size: 17px;
+    font-weight: 800;
+    text-anchor: middle;
+    fill: var(--cor-azul-noite);
+    paint-order: stroke;
+    stroke: var(--cor-branco);
+    stroke-width: 5px;
+    stroke-linejoin: round;
+}
+
+.rotulo_pequeno {
+    font-size: 14px;
+}
+
+.achada .marcador {
+    display: none;
+}
+
+.achada .rotulo {
+    display: block;
+}
+
+.achada > .peca {
+    fill: var(--cor-capri-claro);
+    animation: acender 0.6s;
+}
+
+.achada > .peca_linha {
+    fill: none;
+    stroke: var(--cor-capri-profundo);
+    stroke-width: 3.5;
+}
+
+.mapa_card {
+    flex: 1 1 100%;
+}
+
+.lista_partes {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 6px;
+    margin-top: 14px;
+}
+
+.lista_partes li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+    border-radius: 10px;
+    background-color: var(--cor-gelo);
+    font-size: 14px;
+    color: var(--cor-texto-suave);
+}
+
+.lista_partes li b {
+    font-family: var(--fonte-titulo);
+    color: var(--cor-azul-noite);
+}
+
+.lista_partes li.parte_ok {
+    background-color: var(--cor-ceu);
+    color: var(--cor-azul-noite);
+    font-weight: 700;
+}
+
+.lista_partes li.parte_ok::after {
+    content: "✓";
+    margin-left: auto;
+    font-weight: 800;
+    color: var(--cor-capri-profundo);
+}
+
+/* =====================================================================
+   14. JANELA DE PARABÉNS
+   ===================================================================== */
+#div_janela:empty {
+    display: none;
+}
+
+#div_janela {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(11, 46, 79, 0.55);
+}
+
+.janela {
+    width: 100%;
+    max-width: 440px;
+    padding: 32px;
+    border-radius: 24px;
+    background-color: var(--cor-branco);
+    text-align: center;
+    animation: surgir 0.3s;
+}
+
+.janela h2 {
+    margin: 8px 0 10px;
+    font-size: 30px;
+}
+
+.janela p {
+    margin-bottom: 24px;
+    color: var(--cor-texto-suave);
+}
+
+/* =====================================================================
+   15. ANIMAÇÕES
+   ===================================================================== */
+@keyframes tremer {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+@keyframes surgir {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes acender {
+    from { fill: var(--cor-capri); }
+}
+
+/* =====================================================================
+   16. CELULAR (até 900px)
+   ===================================================================== */
+@media (max-width: 900px) {
+    .sistema {
+        flex-direction: column;
+    }
+
+    /* o menu vira uma barra no topo */
+    .menu_lateral {
+        flex: none;
+        flex-direction: row;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+        height: auto;
+        padding: 12px 14px;
+        z-index: 10;
+    }
+
+    .menu_titulo,
+    .menu_rodape {
+        display: none;
+    }
+
+    .menu_lateral nav {
+        flex: 1;
+        overflow-x: auto;
+    }
+
+    .menu_lista {
+        flex-direction: row;
+        margin-top: 0;
+    }
+
+    .menu_item {
+        height: 40px;
+        padding: 0 12px;
+        white-space: nowrap;
+        font-size: 14px;
+    }
+
+    .menu_logo {
+        font-size: 0;
+    }
+
+    .conteudo {
+        padding: 24px 16px 40px;
+    }
+
+    h1 {
+        font-size: 34px;
+    }
+
+    .cabecalho_pagina h1 {
+        font-size: 28px;
+    }
+
+    .inicio_destaque {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        padding: 28px 24px;
+    }
+
+    .inicio_logo {
+        flex: none;
+        width: 110px;
+    }
+
+    .card {
+        padding: 18px;
+    }
+
+    .elos_grade {
+        gap: 6px;
+    }
+
+    .palavra_elo {
+        height: 64px;
+        font-size: 12px;
+        border-radius: 12px;
+    }
+
+    .grupo_achado {
+        height: auto;
+        padding: 10px;
+    }
+
+    .lista_partes {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .mapa_card {
+        padding: 10px;
+    }
+}
